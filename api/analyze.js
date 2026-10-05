@@ -81,6 +81,7 @@ ${text}
     });
     res.status(200).json(result);
   } catch (e) {
-    res.status(500).json({ error: 'Something went wrong. Please try again.' });
+    console.error(e);
+    res.status(500).json({ error: 'Something went wrong (' + String((e && e.message) || e).slice(0, 220) + ').' });
   }
 };
